@@ -1,6 +1,5 @@
 Feature: Quiz
 
-  @quiz-feature
   Scenario Outline: responder a pregunta en pantalla Question
 
     Given iniciar pantalla Question
@@ -23,7 +22,6 @@ Feature: Quiz
       | Question #1: True  | False  | True   | Incorrect! |
 
 
-  @quiz-feature
   Scenario Outline: pasar a pantalla Cheat sin responder a pregunta en pantalla Question
 
     Given iniciar pantalla Question
@@ -47,7 +45,6 @@ Feature: Quiz
       | Question #1: True |
 
 
-  @quiz-feature
   Scenario Outline: volver a pantalla Question sin mostrar respuesta en pantalla Cheat
 
     Given iniciar pantalla Question
@@ -78,7 +75,6 @@ Feature: Quiz
       | Question #1: True |
 
 
-  @quiz-feature
   Scenario Outline: mostrar respuesta en pantalla Cheat
 
     Given iniciar pantalla Question
@@ -104,7 +100,6 @@ Feature: Quiz
       | Question #1: True | True   |
 
 
-  @quiz-feature
   Scenario Outline: volver a pantalla Question mostrando respuesta en pantalla Cheat
 
     Given iniciar pantalla Question
@@ -139,7 +134,6 @@ Feature: Quiz
       | Question #1: True | True   | Question #2: False |
 
 
-  @quiz-feature
   Scenario Outline: pasar a siguiente pregunta en pantalla Question
 
     Given iniciar pantalla Question
