@@ -41,7 +41,6 @@ public class CheatActivity extends AppCompatActivity {
       answerCheated = savedInstanceState.getBoolean(KEY_CHEATED);
 
       if(answerCheated) {
-        //updateLayoutContent();
         onYesButtonClicked();
       }
     }
@@ -113,7 +112,7 @@ public class CheatActivity extends AppCompatActivity {
 
   }
 
-  @SuppressLint("MissingSuperCall")
+  @SuppressWarnings("ALL")
   @Override
   public void onBackPressed() {
     //super.onBackPressed();
@@ -146,6 +145,5 @@ public class CheatActivity extends AppCompatActivity {
 
     returnCheatedStatus();
   }
-
 
 }
