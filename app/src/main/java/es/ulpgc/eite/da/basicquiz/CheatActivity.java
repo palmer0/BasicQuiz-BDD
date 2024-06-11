@@ -122,13 +122,6 @@ public class CheatActivity extends AppCompatActivity {
   }
 
 
-  private void onYesButtonClicked() {
-    yesButton.setEnabled(false);
-    noButton.setEnabled(false);
-    answerCheated = true;
-    updateLayoutContent();
-  }
-
   private void updateLayoutContent() {
 
     if(currentAnswer == 0) {
@@ -137,6 +130,13 @@ public class CheatActivity extends AppCompatActivity {
       answerField.setText(R.string.true_text);
 
     }
+  }
+
+  private void onYesButtonClicked() {
+    yesButton.setEnabled(false);
+    noButton.setEnabled(false);
+    answerCheated = true;
+    updateLayoutContent();
   }
 
   private void onNoButtonClicked() {
