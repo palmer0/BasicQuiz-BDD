@@ -14,4 +14,5 @@ import io.cucumber.junit.CucumberOptions;
     features = "features"
 )
 public class QuizTests {
+
 }
