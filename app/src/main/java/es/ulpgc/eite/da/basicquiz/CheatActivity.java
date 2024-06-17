@@ -33,14 +33,18 @@ public class CheatActivity extends AppCompatActivity {
 
     Log.d(TAG, "onCreate");
 
-    initLayoutData();
     linkLayoutComponents();
 
-    if(savedInstanceState != null) {
+    if(savedInstanceState == null) {
+      initLayoutData();
+
+    } else {
+
       currentAnswer = savedInstanceState.getInt(KEY_ANSWER);
       answerCheated = savedInstanceState.getBoolean(KEY_CHEATED);
 
       if(answerCheated) {
+        //updateLayoutContent();
         onYesButtonClicked();
       }
     }
@@ -112,7 +116,7 @@ public class CheatActivity extends AppCompatActivity {
 
   }
 
-  @SuppressWarnings("ALL")
+  @SuppressLint("MissingSuperCall")
   @Override
   public void onBackPressed() {
     //super.onBackPressed();
@@ -121,6 +125,13 @@ public class CheatActivity extends AppCompatActivity {
     returnCheatedStatus();
   }
 
+
+  private void onYesButtonClicked() {
+    yesButton.setEnabled(false);
+    noButton.setEnabled(false);
+    answerCheated = true;
+    updateLayoutContent();
+  }
 
   private void updateLayoutContent() {
 
@@ -132,18 +143,12 @@ public class CheatActivity extends AppCompatActivity {
     }
   }
 
-  private void onYesButtonClicked() {
-    yesButton.setEnabled(false);
-    noButton.setEnabled(false);
-    answerCheated = true;
-    updateLayoutContent();
-  }
-
   private void onNoButtonClicked() {
     yesButton.setEnabled(false);
     noButton.setEnabled(false);
 
     returnCheatedStatus();
   }
+
 
 }

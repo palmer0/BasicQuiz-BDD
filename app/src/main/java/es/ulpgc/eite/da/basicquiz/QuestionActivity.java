@@ -205,7 +205,6 @@ public class QuestionActivity extends AppCompatActivity {
         updateLayoutContent();
     }
 
-    @SuppressWarnings("ALL")
     private void onCheatButtonClicked() {
 
         Intent intent = new Intent(this, CheatActivity.class);
