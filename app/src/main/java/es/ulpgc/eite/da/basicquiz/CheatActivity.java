@@ -116,7 +116,7 @@ public class CheatActivity extends AppCompatActivity {
 
   }
 
-  @SuppressLint("MissingSuperCall")
+  @SuppressWarnings("ALL")
   @Override
   public void onBackPressed() {
     //super.onBackPressed();
