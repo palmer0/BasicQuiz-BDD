@@ -1,6 +1,5 @@
 package es.ulpgc.eite.da.basicquiz;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,7 +48,7 @@ public class CheatActivity extends AppCompatActivity {
       }
     }
 
-    enableLayoutButtons();
+    initLayoutButtons();
   }
 
   @Override
@@ -89,7 +88,7 @@ public class CheatActivity extends AppCompatActivity {
     }
   }
 
-  private void enableLayoutButtons() {
+  private void initLayoutButtons() {
 
     noButton.setOnClickListener(v -> onNoButtonClicked());
     yesButton.setOnClickListener(v -> onYesButtonClicked());
