@@ -48,7 +48,7 @@ public class QuestionActivity extends AppCompatActivity {
         }
 
         updateLayoutContent();
-        enableLayoutButtons();
+        initLayoutButtons();
     }
 
     @Override
@@ -84,7 +84,7 @@ public class QuestionActivity extends AppCompatActivity {
         outState.putBoolean(KEY_ENABLED, nextButtonEnabled);
     }
 
-    private void enableLayoutButtons() {
+    private void initLayoutButtons() {
 
         trueButton.setOnClickListener(v -> onTrueButtonClicked());
         falseButton.setOnClickListener(v -> onFalseButtonClicked());
@@ -205,6 +205,7 @@ public class QuestionActivity extends AppCompatActivity {
         updateLayoutContent();
     }
 
+    @SuppressWarnings("ALL")
     private void onCheatButtonClicked() {
 
         Intent intent = new Intent(this, CheatActivity.class);
