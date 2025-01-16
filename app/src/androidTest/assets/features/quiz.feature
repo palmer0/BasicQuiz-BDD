@@ -82,11 +82,13 @@ Feature: Quiz
     And ocultar resultado
     And mostrar botones True y False y Cheat activados
     And mostrar boton Next desactivado
+    #And girar pantalla
     And pulsar boton Cheat
     And iniciar pantalla Cheat
     And mostrar mensaje Warning
     And ocultar respuesta
     And mostrar botones Yes y No activados
+    #And girar pantalla
     And pulsar boton Yes
     And mostrar respuesta "<answer>" a pregunta "<question>"
     And mostrar botones Yes y No desactivados

@@ -1,6 +1,7 @@
 package es.ulpgc.eite.da.basicquiz.steps;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -11,6 +12,10 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.not;
 
 import androidx.test.core.app.ActivityScenario;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
+import androidx.test.platform.app.InstrumentationRegistry;
+
+import org.junit.Rule;
 
 import es.ulpgc.eite.da.basicquiz.QuestionActivity;
 import es.ulpgc.eite.da.basicquiz.R;
@@ -25,6 +30,10 @@ public class QuizSteps {
 
     ActivityScenario<QuestionActivity> scenario =
         ActivityScenario.launch(QuestionActivity.class);
+
+    /*@Rule
+    public ActivityScenarioRule<QuestionActivity> activityRule =
+        new ActivityScenarioRule<>(QuestionActivity.class);*/
 
     @Given("iniciar pantalla Question")
     public void iniciarPantallaQuestion() {
@@ -90,6 +99,30 @@ public class QuizSteps {
     @When("girar pantalla")
     public void girarPantalla() {
 
+        InstrumentationRegistry.getInstrumentation()
+            .getUiAutomation().executeShellCommand("settings put system accelerometer_rotation 0");
+
+        InstrumentationRegistry.getInstrumentation()
+            .getUiAutomation().executeShellCommand("settings put system user_rotation 1");
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+        }
+
+        InstrumentationRegistry.getInstrumentation()
+            .getUiAutomation().executeShellCommand("settings put system user_rotation 0");
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+        }
+    }
+
+    /*@When("girar pantalla")
+    public void girarPantalla() {
+
+
         scenario.onActivity(activity -> {
             activity.setRequestedOrientation(SCREEN_ORIENTATION_LANDSCAPE);
 
@@ -97,8 +130,15 @@ public class QuizSteps {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
             }
+
+            activity.setRequestedOrientation(SCREEN_ORIENTATION_PORTRAIT);
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+            }
         });
-    }
+    }*/
 
     @And("pulsar boton Cheat")
     public void pulsarBotonCheat() {

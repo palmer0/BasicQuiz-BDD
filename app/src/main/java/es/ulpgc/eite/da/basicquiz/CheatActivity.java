@@ -33,6 +33,7 @@ public class CheatActivity extends AppCompatActivity {
     Log.d(TAG, "onCreate");
 
     linkLayoutComponents();
+    //initLayoutData();
 
     if(savedInstanceState == null) {
       initLayoutData();
