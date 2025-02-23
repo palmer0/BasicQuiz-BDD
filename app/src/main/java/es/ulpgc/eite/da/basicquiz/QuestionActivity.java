@@ -34,7 +34,6 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         setTitle(R.string.question_screen_title);
-
         Log.d(TAG, "onCreate");
 
         initLayoutData();
@@ -54,28 +53,24 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         Log.d(TAG, "onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-
         Log.d(TAG, "onPause");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         Log.d(TAG, "onDestroy");
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-
         Log.d(TAG, "onSaveInstanceState");
 
         outState.putInt(KEY_INDEX, questionIndex);
@@ -167,6 +162,8 @@ public class QuestionActivity extends AppCompatActivity {
     */
 
     private void updateLayoutContent() {
+        Log.d(TAG, "updateLayoutContent");
+
         questionField.setText(questionsArray[questionIndex]);
 
         if (!nextButtonEnabled) {
@@ -182,6 +179,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void onTrueButtonClicked() {
+        Log.d(TAG, "onTrueButtonClicked");
 
         if (answersArray[questionIndex] == 1) {
             resultText =  getString(R.string.correct_text);
@@ -194,6 +192,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void onFalseButtonClicked() {
+        Log.d(TAG, "onFalseButtonClicked");
 
         if (answersArray[questionIndex] == 0) {
             resultText = getString(R.string.correct_text);
@@ -207,7 +206,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     @SuppressWarnings("ALL")
     private void onCheatButtonClicked() {
-
+        Log.d(TAG, "onCheatButtonClicked");
         Intent intent = new Intent(this, CheatActivity.class);
         intent.putExtra(CheatActivity.EXTRA_ANSWER, answersArray[questionIndex]);
         startActivityForResult(intent, CHEAT_REQUEST);
@@ -216,7 +215,6 @@ public class QuestionActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-
         Log.d(TAG, "onActivityResult");
 
         if (requestCode == CHEAT_REQUEST && resultCode == RESULT_OK && intent != null) {

@@ -29,7 +29,6 @@ public class CheatActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_cheat);
     setTitle(R.string.cheat_screen_title);
-
     Log.d(TAG, "onCreate");
 
     linkLayoutComponents();
@@ -55,27 +54,25 @@ public class CheatActivity extends AppCompatActivity {
   @Override
   protected void onResume() {
     super.onResume();
-
     Log.d(TAG, "onResume");
   }
 
   @Override
   protected void onPause() {
     super.onPause();
-
     Log.d(TAG, "onPause");
   }
 
   @Override
   protected void onDestroy() {
     super.onDestroy();
-
     Log.d(TAG, "onDestroy");
   }
 
   @Override
   protected void onSaveInstanceState(Bundle outState) {
     super.onSaveInstanceState(outState);
+    Log.d(TAG, "onSaveInstanceState");
 
     outState.putInt(KEY_ANSWER, currentAnswer);
     outState.putBoolean(KEY_CHEATED, answerCheated);
@@ -127,6 +124,8 @@ public class CheatActivity extends AppCompatActivity {
 
 
   private void onYesButtonClicked() {
+    Log.d(TAG, "onYesButtonClicked");
+
     yesButton.setEnabled(false);
     noButton.setEnabled(false);
     answerCheated = true;
@@ -134,6 +133,7 @@ public class CheatActivity extends AppCompatActivity {
   }
 
   private void updateLayoutContent() {
+    Log.d(TAG, "updateLayoutContent");
 
     if(currentAnswer == 0) {
       answerField.setText(R.string.false_text);
@@ -144,6 +144,8 @@ public class CheatActivity extends AppCompatActivity {
   }
 
   private void onNoButtonClicked() {
+    Log.d(TAG, "onNoButtonClicked");
+
     yesButton.setEnabled(false);
     noButton.setEnabled(false);
 
